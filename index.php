@@ -2,49 +2,49 @@
 <!-- array -->
 <?php
 
-    $hotels = [
+$hotels = [
 
-        [
-            'name' => 'Hotel Belvedere',
-            'description' => 'Hotel Belvedere Descrizione',
-            'parking' => true,
-            'vote' => 4,
-            'distance_to_center' => 10.4
-        ],
-        [
-            'name' => 'Hotel Futuro',
-            'description' => 'Hotel Futuro Descrizione',
-            'parking' => true,
-            'vote' => 2,
-            'distance_to_center' => 2
-        ],
-        [
-            'name' => 'Hotel Rivamare',
-            'description' => 'Hotel Rivamare Descrizione',
-            'parking' => false,
-            'vote' => 1,
-            'distance_to_center' => 1
-        ],
-        [
-            'name' => 'Hotel Bellavista',
-            'description' => 'Hotel Bellavista Descrizione',
-            'parking' => false,
-            'vote' => 5,
-            'distance_to_center' => 5.5
-        ],
-        [
-            'name' => 'Hotel Milano',
-            'description' => 'Hotel Milano Descrizione',
-            'parking' => true,
-            'vote' => 2,
-            'distance_to_center' => 50
-        ],
+    [
+        'name' => 'Hotel Belvedere',
+        'description' => 'Hotel Belvedere Descrizione',
+        'parking' => true,
+        'vote' => 4,
+        'distance_to_center' => 10.4
+    ],
+    [
+        'name' => 'Hotel Futuro',
+        'description' => 'Hotel Futuro Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 2
+    ],
+    [
+        'name' => 'Hotel Rivamare',
+        'description' => 'Hotel Rivamare Descrizione',
+        'parking' => false,
+        'vote' => 1,
+        'distance_to_center' => 1
+    ],
+    [
+        'name' => 'Hotel Bellavista',
+        'description' => 'Hotel Bellavista Descrizione',
+        'parking' => false,
+        'vote' => 5,
+        'distance_to_center' => 5.5
+    ],
+    [
+        'name' => 'Hotel Milano',
+        'description' => 'Hotel Milano Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 50
+    ],
 
-    ];
+];
 
-    /* var_dump($hotels);  */
+/* var_dump($hotels);  */
 
-    /* Traccia: Stampare in pagina i dati dell'hotel sottoforma di tabella. */
+/* Traccia: Stampare in pagina i dati dell'hotel sottoforma di tabella. */
 ?>
 
 
@@ -52,6 +52,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>PHP HOTELS</title>
 
@@ -61,58 +62,68 @@
     <meta name="description" content="php-hotel" />
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body class="bg-primary">
     <!-- Per ogni hotel in hotels (hotels as hotel) stampa il suo name, description, parking, vote, distance_to_center. -->
-<div class="container mt-5 ">
-    
-
-    <div class="card text-center">
-    <div class="card-header bg-light">
-        🏨<b>Lista Hotel</b>🏨
+    <div class="container mt-5 ">
+        <!-- INPUT BONUS 1 -->
+        <form method="GET">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Hotel con parcheggio: true or false"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn bg-danger text-light" type="button" id="button-addon2">Button</button>
+            </div>
+        </form>
+        <!-- tabella -->
+        <div class="card text-center">
+            <div class="card-header bg-light">
+                🏨<b>Lista Hotel</b>🏨
+            </div>
+            <div class="card-body">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Parking</th>
+                            <th scope="col">Vote</th>
+                            <th scope="col">Distance(to center)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($hotels as $hotel): ?>
+                            <tr>
+                                <td colspan="1" class="h5">
+                                    <?= $hotel['name']; ?>
+                                </td>
+                                <td colspan="1">
+                                    <?= $hotel['description']; ?>
+                                </td>
+                                <?php if ($hotel['parking']) { ?>
+                                    <td colspan="1">
+                                        ✔
+                                    </td>
+                                <?php } else { ?>
+                                    <td colspan="1">
+                                        ❌
+                                    </td>
+                                <?php } ?>
+                                <td colspan="1">
+                                    <?= $hotel['vote']; ?>
+                                </td>
+                                <td colspan="1">
+                                    <?= $hotel['distance_to_center'] . ' km'; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <table class="table text-center">
-        <thead>
-            <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Parking</th>
-            <th scope="col">Vote</th>
-            <th scope="col">Distance(to center)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($hotels as $hotel):?>
-            <tr>
-                <td colspan="1" class="h5">
-                <?= $hotel['name'];?>
-                </td>
-                <td colspan="1">
-                <?= $hotel['description'];?>
-                </td>
-                <?php if ($hotel['parking']) {?>
-                <td colspan="1">
-                ✔
-                </td>
-                <?php } else { ?>
-                <td colspan="1">
-                ❌
-                </td>
-                <?php } ?>
-                <td colspan="1">
-                <?= $hotel['vote'];?>
-                </td>
-                <td colspan="1">
-                <?= $hotel['distance_to_center'].' km';?>
-                </td>
-            </tr>
-            <?php endforeach; ?> 
-    </tbody>
-    </table>
-    </div>
-    </div>
-</div>
 </body>
+
 </html>
