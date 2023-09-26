@@ -66,7 +66,9 @@
 <body>
     <!-- Per ogni hotel in hotels (hotels as hotel) stampa il suo name, description, parking, vote, distance_to_center. -->
     <ul>
-        <?php foreach ($hotels as $hotel);
+        <?php foreach ($hotels as $hotel) {
+             foreach($hotel as )
+        }
         ?>
         <li>
         <?php $hotel ?>
