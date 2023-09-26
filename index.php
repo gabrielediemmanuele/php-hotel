@@ -42,7 +42,7 @@
 
     ];
 
-   /*  var_dump($hotels); */
+    /* var_dump($hotels);  */
 
     /* Traccia: Stampare in pagina i dati dell'hotel sottoforma di tabella. */
 ?>
@@ -63,17 +63,48 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-primary">
     <!-- Per ogni hotel in hotels (hotels as hotel) stampa il suo name, description, parking, vote, distance_to_center. -->
-    <ul>
-        <?php foreach ($hotels as $hotel) {
-             foreach($hotel as )
-        }
-        ?>
-        <li>
-        <?php $hotel ?>
-        </li>
-    </ul>
-    
+<div class="container mt-5 ">
+    <div class="card text-center">
+    <div class="card-header bg-light">
+        🏨<b>Lista Hotel</b>🏨
+    </div>
+    <div class="card-body">
+        <table class="table text-center">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Parking</th>
+            <th scope="col">Vote</th>
+            <th scope="col">Distance(to center)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($hotels as $hotel):?>
+            <tr>
+            <td colspan="1">
+            <?= $hotel['name'];?>
+            </td>
+            <td colspan="1">
+            <?= $hotel['description'];?>
+            </td>
+            <td colspan="1">
+            <?= $hotel['parking'];?>
+                </td>
+                <td colspan="1">
+                <?= $hotel['vote'];?>
+                </td>
+                <td colspan="1">
+                <?= $hotel['distance_to_center'];?>
+                </td>
+            </tr>
+            <?php endforeach; ?> 
+    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
 </body>
 </html>
