@@ -84,14 +84,14 @@
         <tbody>
             <?php foreach ($hotels as $hotel):?>
             <tr>
-            <td colspan="1">
-            <?= $hotel['name'];?>
-            </td>
-            <td colspan="1">
-            <?= $hotel['description'];?>
-            </td>
-            <td colspan="1">
-            <?= $hotel['parking'];?>
+                <td colspan="1">
+                <?= $hotel['name'];?>
+                </td>
+                <td colspan="1">
+                <?= $hotel['description'];?>
+                </td>
+                <td colspan="1">
+                <?= $hotel['parking'];?>
                 </td>
                 <td colspan="1">
                 <?= $hotel['vote'];?>
