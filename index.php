@@ -66,6 +66,8 @@
 <body class="bg-primary">
     <!-- Per ogni hotel in hotels (hotels as hotel) stampa il suo name, description, parking, vote, distance_to_center. -->
 <div class="container mt-5 ">
+    
+
     <div class="card text-center">
     <div class="card-header bg-light">
         🏨<b>Lista Hotel</b>🏨
@@ -84,20 +86,26 @@
         <tbody>
             <?php foreach ($hotels as $hotel):?>
             <tr>
-                <td colspan="1">
+                <td colspan="1" class="h5">
                 <?= $hotel['name'];?>
                 </td>
                 <td colspan="1">
                 <?= $hotel['description'];?>
                 </td>
+                <?php if ($hotel['parking']) {?>
                 <td colspan="1">
-                <?= $hotel['parking'];?>
+                ✔
                 </td>
+                <?php } else { ?>
+                <td colspan="1">
+                ❌
+                </td>
+                <?php } ?>
                 <td colspan="1">
                 <?= $hotel['vote'];?>
                 </td>
                 <td colspan="1">
-                <?= $hotel['distance_to_center'];?>
+                <?= $hotel['distance_to_center'].' km';?>
                 </td>
             </tr>
             <?php endforeach; ?> 
